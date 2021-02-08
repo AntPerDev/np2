@@ -5,13 +5,14 @@ import { NotFoundComponent } from './core/shared/components/not-found/not-found.
 
 
 const routes: Routes = [
-  {path: '',loadChildren:() => import('./public/public.module').then(m => m.PublicModule)},
-  {path: '**', component: NotFoundComponent }
+  { path: '', loadChildren: () => import('./public/public.module').then(m => m.PublicModule) },
+  { path: '**', component: NotFoundComponent }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash:true})],
+  //{ useHash: true } refresco de las páginas en produccion
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
